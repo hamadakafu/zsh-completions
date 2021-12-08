@@ -23,6 +23,9 @@ jobs:
       - name: cargo completion
         run: rustup completions zsh cargo > ./src/_cargo
 
+      - name: just completion
+        run: cargo install just && just --completions zsh > ./src/_just
+
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: update rustup completions
