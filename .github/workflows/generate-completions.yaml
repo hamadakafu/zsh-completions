@@ -31,9 +31,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install kind
-        uses: engineerd/setup-kind@v0.5.0
+        uses: helm/kind-action@v1.2.0
         with:
-          skipClusterCreation: true
+          wait: 0s
 
       - name: kind completion
         run: kind completion zsh > ./src/_kind
