@@ -31,7 +31,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install kind
-        uses: engineerd/setup-kind@master
+        uses: engineerd/setup-kind@latest
+        with:
+          skipClusterCreation: true
 
       - name: kind completion
         run: kind completion zsh > ./src/_kind
