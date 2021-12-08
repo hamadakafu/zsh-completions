@@ -8,7 +8,6 @@ name: generate completions
 
 jobs:
   rustup:
-    name: Rust project
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -28,3 +27,15 @@ jobs:
         with:
           commit_message: update rustup completions
 
+  kind:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install kind
+        uses: helm/kind-action
+
+      - name: kind completion
+        run: kind completion zsh > ./src/_kind
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: update kind completions
