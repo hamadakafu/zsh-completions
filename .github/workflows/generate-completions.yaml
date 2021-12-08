@@ -30,6 +30,7 @@ jobs:
   kind:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Install kind
         uses: helm/kind-action@v1.2.0
         with:
@@ -37,7 +38,6 @@ jobs:
 
       - name: kind completion
         run: kind completion zsh > ./src/_kind
-        working-directory: ./
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
