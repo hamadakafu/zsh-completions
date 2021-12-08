@@ -37,6 +37,7 @@ jobs:
 
       - name: kind completion
         run: kind completion zsh > ./src/_kind
+        working-directory: ./
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
