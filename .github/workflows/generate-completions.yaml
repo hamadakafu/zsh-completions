@@ -1,0 +1,28 @@
+on:
+  schedule:
+    - cron: '0/2 0 * * *'
+
+name: generate completions
+
+jobs:
+  rustup:
+    name: Rust project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install latest stable
+        uses: actions-rs/toolchain@v1
+        with:
+            toolchain: stable
+            override: true
+
+      - name: rustup completion
+        run: rustup completions zsh rustup > ./src/_rustup
+
+      - name: cargo completion
+        run: rustup completions zsh cargo > ./src/_cargo
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: update rustup completions
+
