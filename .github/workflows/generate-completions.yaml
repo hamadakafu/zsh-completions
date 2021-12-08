@@ -7,7 +7,7 @@ on:
 name: generate completions
 
 jobs:
-  rustup:
+  completions:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,32 +16,26 @@ jobs:
         with:
             toolchain: stable
             override: true
-
       - name: rustup completion
         run: rustup completions zsh rustup > ./src/_rustup
-
       - name: cargo completion
         run: rustup completions zsh cargo > ./src/_cargo
-
       - name: just completion
         run: cargo install just && just --completions zsh > ./src/_just
 
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: update rustup completions
+      - name: Python Poetry Action
+        uses: abatilo/actions-poetry@v2.1.3
+      - name: poetry completion
+        run: poetry completions zsh > ./src/_just
 
-  kind:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
       - name: Install kind
         uses: helm/kind-action@v1.2.0
         with:
           wait: 0s
-
       - name: kind completion
         run: kind completion zsh > ./src/_kind
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: update kind completions
+          commit_message: update rustup completions
+
