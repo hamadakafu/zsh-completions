@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install kind
-        uses: helm/kind-action@main
+        uses: engineerd/setup-kind@master
 
       - name: kind completion
         run: kind completion zsh > ./src/_kind
