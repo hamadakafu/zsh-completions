@@ -35,6 +35,13 @@ jobs:
       - name: kind completion
         run: kind completion zsh > ./src/_kind
 
+      - name: Install deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: vx.x.x
+      - name: deno completion
+        run: deno completions zsh > ./src/_deno
+
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: update completions
