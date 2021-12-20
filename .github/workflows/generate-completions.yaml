@@ -42,11 +42,6 @@ jobs:
       - name: deno completion
         run: deno completions zsh > ./src/_deno
 
-      - uses: haskell/actions/setup@v1
-        with:
-          enable-stack: true
-      - run: stack --bash-completion-script stack > ./src/_stack
-
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: update completions
