@@ -20,8 +20,6 @@ jobs:
         run: rustup completions zsh rustup > ./src/_rustup
       - name: cargo completion
         run: rustup completions zsh cargo > ./src/_cargo
-      - name: just completion
-        run: cargo install just && just --completions zsh > ./src/_just
 
       - name: Python Poetry Action
         uses: abatilo/actions-poetry@v2.1.3
@@ -41,10 +39,6 @@ jobs:
           deno-version: vx.x.x
       - name: deno completion
         run: deno completions zsh > ./src/_deno
-
-      - name: ripgrep
-        run: curl https://raw.githubusercontent.com/BurntSushi/ripgrep/master/complete/_rg > ./src/_rg
-
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
