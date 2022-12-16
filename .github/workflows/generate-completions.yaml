@@ -40,6 +40,9 @@ jobs:
       - name: deno completion
         run: deno completions zsh > ./src/_deno
 
+      - name: Fetch docker-compose completion
+        run: curl https://raw.githubusercontent.com/docker/compose/master/contrib/completion/zsh/_docker-compose > ./src/_docker-compose
+
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: update completions
