@@ -308,17 +308,18 @@ _arguments "${_arguments_options[@]}" \
 '--config=[Specify the configuration file]:FILE:_files' \
 '--ext=[Set standard input (stdin) content type]: :(ts tsx js jsx md json jsonc)' \
 '--ignore=[Ignore formatting particular source files]: :_files' \
+'--options-use-tabs=[Use tabs instead of spaces for indentation. Defaults to false.]: :(true false)' \
 '--options-line-width=[Define maximum line width. Defaults to 80.]: : ' \
 '--options-indent-width=[Define indentation width. Defaults to 2.]: : ' \
+'--options-single-quote=[Use single quotes. Defaults to false.]: :(true false)' \
 '--options-prose-wrap=[Define how prose should be wrapped. Defaults to always.]: :(always never preserve)' \
+'--options-no-semicolons=[Don'\''t use semicolons except where necessary.]: :(true false)' \
 '-L+[Set log level]: :(debug info)' \
 '--log-level=[Set log level]: :(debug info)' \
 '(-c --config)--no-config[Disable automatic loading of the configuration file.]' \
 '--check[Check if the source files are formatted]' \
 '--watch[Watch for file changes and restart automatically]' \
 '--no-clear-screen[Do not clear terminal screen when under watch mode]' \
-'--options-use-tabs[Use tabs instead of spaces for indentation. Defaults to false.]' \
-'--options-single-quote[Use single quotes. Defaults to false.]' \
 '-h[Print help information]' \
 '--help[Print help information]' \
 '--unstable[Enable unstable features and APIs]' \
